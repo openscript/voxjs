@@ -6,5 +6,25 @@
   "repository": "https://github.com/openscript/voxjs",
   "author": "Robin Bühler",
   "license": "MPL-2.0",
-  "private": false
+  "private": false,
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.ts --content-base build/ --hot --progress"
+  },
+  "dependencies": {
+    "@types/copy-webpack-plugin": "^4.4.1",
+    "@types/webpack": "^4.4.4",
+    "awesome-typescript-loader": "^5.2.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "preact": "^8.2.9",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.14.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.10.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
 }
