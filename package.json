@@ -8,18 +8,24 @@
   "license": "MPL-2.0",
   "private": false,
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.ts --content-base build/ --hot --progress"
+    "dev": "webpack-dev-server --config webpack.ts --content-base build/ --hot --progress",
+    "prod": "webpack --config webpack.prod.ts --profile"
   },
   "dependencies": {
     "@types/copy-webpack-plugin": "^4.4.1",
+    "@types/uglifyjs-webpack-plugin": "^1.1.0",
     "@types/webpack": "^4.4.4",
     "awesome-typescript-loader": "^5.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "copy-webpack-plugin": "^4.5.2",
     "preact": "^8.2.9",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "ts-node": "^7.0.0",
     "typescript": "^2.9.2",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.14.0"
   },
   "devDependencies": {
