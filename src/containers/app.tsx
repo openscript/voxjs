@@ -1,7 +1,7 @@
-import { h, Component } from "preact";
+import { Component, h } from 'preact';
 
 export class App extends Component<{}, {}> {
-    render() {
+    public render() {
         return <strong>Hello</strong>;
     }
 }

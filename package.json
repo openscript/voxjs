@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "dev": "webpack-dev-server --config webpack.ts --content-base build/ --hot --progress",
-    "prod": "webpack --config webpack.prod.ts --profile"
+    "prod": "webpack --config webpack.prod.ts --profile",
+    "lint": "tslint 'src/**/*.ts?(x)'"
   },
   "dependencies": {
     "@types/copy-webpack-plugin": "^4.4.1",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "tslint": "^5.10.0",
+    "tslint-react": "^3.6.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   }
