@@ -1,7 +1,10 @@
+import firebase from 'firebase/app';
 import { Component, h } from 'preact';
 import { Reply } from '../models/reply';
 import { ReplyForm } from './reply-form';
 import { ReplyList } from './reply-list';
+
+import 'firebase/database';
 
 export class App extends Component<{}, {}> {
 
@@ -15,6 +18,6 @@ export class App extends Component<{}, {}> {
     }
 
     private onReplySubmit(reply: Reply) {
-        alert(reply.message);
+        firebase.database().ref('replys').push().set(reply);
     }
 }
