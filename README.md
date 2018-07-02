@@ -15,4 +15,4 @@ The following technolgies and services are used:
  * [Github](https://github.com)
 
 ## Footnotes
-1. <small id="f1">Firebase is huge, unfortunately.</small> [↩](#a1)
+1. <small id="f1">Firebase is huge, unfortunately. Check out the [bundle analysis report](https://vox-js.firebaseapp.com/report.html) for more details.</small> [↩](#a1)
