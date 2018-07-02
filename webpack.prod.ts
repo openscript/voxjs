@@ -2,6 +2,7 @@ import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
 import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import {Configuration, DefinePlugin, LoaderOptionsPlugin} from 'webpack';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 const config: Configuration = {
     mode: 'production',
@@ -69,6 +70,10 @@ const config: Configuration = {
                 NODE_ENV: JSON.stringify('production'),
                 BASE_URL: JSON.stringify('/')
             }
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false
         })
     ]
 };

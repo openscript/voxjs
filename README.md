@@ -10,6 +10,8 @@ The following technolgies and services are used:
  * [Typescript](https://github.com/Microsoft/TypeScript) and [Preact](https://preactjs.com/)
  * [Firebase JS SDK](https://github.com/firebase/firebase-js-sdk)
  * [Travis CI](https://travis-ci.org) with a deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/)
+ * [Webpack](https://github.com/webpack/webpack)
+   * [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) <br> Plugin to analyze the resulting bundle.js. The report can be found [here](https://vox-js.firebaseapp.com/report.html).
  * [Github](https://github.com)
 
 ## Footnotes
