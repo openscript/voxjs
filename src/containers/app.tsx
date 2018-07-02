@@ -1,17 +1,37 @@
 import firebase from 'firebase/app';
 import { Component, h } from 'preact';
 import { Reply } from '../models/reply';
-import { ReplyForm } from './reply-form';
-import { ReplyList } from './reply-list';
+import { ReplyForm } from './replyForm';
+import { ReplyList } from './replyList';
 
 import 'firebase/database';
 
-export class App extends Component<{}, {}> {
+interface State {
+    replys: Reply[];
+}
+
+export class App extends Component<{}, State> {
+
+    public constructor() {
+        super();
+
+        this.setState({replys: []});
+    }
+
+    public componentWillMount() {
+        firebase.database().ref('replys').on('value', (snapshot) => {
+            if (snapshot != null) {
+                const replysSnapshot = (snapshot.val() as {[key: string]: Reply});
+                const replys = Object.keys(replysSnapshot).map((key) => replysSnapshot[key]);
+                this.setState({...this.state, replys});
+            }
+        });
+    }
 
     public render() {
         return (
             <div>
-                <ReplyList />
+                <ReplyList replys={this.state.replys} />
                 <ReplyForm onSubmit={this.onReplySubmit} />
             </div>
         );
