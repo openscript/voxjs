@@ -23,7 +23,7 @@ export class ReplyForm extends Component<Props, State> {
         return (
             <form onSubmit={this.onSubmit}>
                 <label>Message<textarea onChange={this.onMessageChange} /></label>
-                <input type='submit' />
+                <input type='submit' value='Submit' />
             </form>
         );
     }

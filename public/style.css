@@ -3,7 +3,7 @@ html, body {
     padding: 0;
 }
 
-#voxjs form {
+#voxjs form, #voxjs form label {
     display: flex;
     flex-direction: column;
 }
