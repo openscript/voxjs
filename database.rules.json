@@ -4,7 +4,7 @@
     ".write": "auth != null",
     "replys" : {
       ".read": "true",
-      ".write": "true"
+      ".write": "auth != null"
     }
   }
 }
