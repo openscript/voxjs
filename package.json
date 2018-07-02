@@ -8,7 +8,7 @@
   "license": "MPL-2.0",
   "private": false,
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.ts --content-base build/ --hot --progress",
+    "dev": "webpack-dev-server --config webpack.ts --content-base build/ --hot --progress --open",
     "prod": "webpack --config webpack.prod.ts --profile",
     "lint": "tslint 'src/**/*.ts?(x)'"
   },
