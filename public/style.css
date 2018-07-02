@@ -1,0 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#voxjs form {
+    display: flex;
+    flex-direction: column;
+}
