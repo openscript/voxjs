@@ -17,6 +17,10 @@
     ],
     "rewrites": [
       {
+        "source": "/report.html",
+        "destination": "/report.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
