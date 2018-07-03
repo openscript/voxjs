@@ -7,14 +7,17 @@ import { Reply } from '../models/reply';
 import 'firebase/auth';
 import 'firebase/database';
 
-interface State {
-    replys: Reply[];
+interface Props {
     user?: firebase.User;
 }
 
-export class ReplyContainer extends Component<{}, State> {
-    public constructor() {
-        super();
+interface State {
+    replys: Reply[];
+}
+
+export class ReplyContainer extends Component<Props, State> {
+    public constructor(props: Props) {
+        super(props);
 
         this.setState({replys: []});
         this.onReplySubmit = this.onReplySubmit.bind(this);
@@ -28,21 +31,12 @@ export class ReplyContainer extends Component<{}, State> {
                 this.setState({...this.state, replys});
             }
         });
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user != null) {
-                this.setState({...this.state, user});
-            }
-        });
     }
 
     public render() {
         let displayName;
-        if (this.state.user) {
-            const provider = this.state.user.providerData
-                                ? this.state.user.providerData.map((data) => data ? data.providerId : '') : undefined;
-            displayName = this.state.user.displayName
-                            ? `${this.state.user.displayName} (via ${provider})`
-                            : undefined;
+        if (this.props.user) {
+            displayName = this.props.user.displayName ? this.props.user.displayName : undefined;
         }
         return (
             <div>
@@ -53,7 +47,7 @@ export class ReplyContainer extends Component<{}, State> {
     }
 
     private onReplySubmit(reply: Reply) {
-        if (this.state.user) {
+        if (this.props.user) {
             firebase.database().ref('replys').push().set(reply);
         } else {
             const provider = new firebase.auth.GoogleAuthProvider();
