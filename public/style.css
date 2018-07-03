@@ -23,6 +23,17 @@ footer, header {
     background-color: #eee;
 }
 
+input, textarea {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 5rem;
+    height: 10em;
+    max-width: 100%;
+}
+
 #voxjs form, #voxjs form label {
     display: flex;
     flex-direction: column;
