@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "copy-webpack-plugin": "^4.5.2",
     "firebase": "^5.2.0",
+    "node-sass": "^4.9.0",
     "preact": "^8.2.9",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",

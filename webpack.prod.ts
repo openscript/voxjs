@@ -6,14 +6,14 @@ import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 const config: Configuration = {
     mode: 'production',
-    entry: './src/index.tsx',
+    entry: ['./src/index.tsx'],
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, 'build')
     },
 
     resolve: {
-        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json'],
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json', '.scss'],
         modules: [path.resolve(__dirname, 'examples'), 'node_modules']
     },
 
@@ -40,7 +40,7 @@ const config: Configuration = {
                     loader: 'style-loader'
                 }, {
                     loader: 'sass-loader',
-                    query: {
+                    options: {
                         sourceMap: false
                     }
                 }]

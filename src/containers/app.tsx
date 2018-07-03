@@ -1,9 +1,9 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { Component, h } from 'preact';
 import { ReplyContainer } from './replyContainer';
+import { UserContainer } from './userContainer';
 
 import 'firebase/auth';
-import { UserContainer } from './userContainer';
 
 interface State {
     user?: firebase.User;
