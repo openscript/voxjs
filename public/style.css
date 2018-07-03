@@ -11,7 +11,19 @@ body {
 }
 
 body > * {
-    padding: 0 10rem;
+    padding: 0 10vw;
+}
+
+@media screen and (max-width: 800px){
+    body > * {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    body > * {
+        padding: 0 20vw;
+    }
 }
 
 main {

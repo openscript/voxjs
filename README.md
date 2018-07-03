@@ -2,7 +2,7 @@
 VoxJS is a simple commenting system for static pages based on firebase.
 
 ## Idea
- * As small and slick as possible (~70kb)<sup id="a1">[1](#f1)</sup>
+ * As small and slick as possible (~120kb)<sup id="a1">[1](#f1)</sup>
 
 ## Technologies and services
 The following technolgies and services are used:

@@ -36,10 +36,18 @@ export class ReplyContainer extends Component<{}, State> {
     }
 
     public render() {
+        let displayName;
+        if (this.state.user) {
+            const provider = this.state.user.providerData
+                                ? this.state.user.providerData.map((data) => data ? data.providerId : '') : undefined;
+            displayName = this.state.user.displayName
+                            ? `${this.state.user.displayName} (via ${provider})`
+                            : undefined;
+        }
         return (
             <div>
                 <ReplyList replys={this.state.replys} />
-                <ReplyForm onSubmit={this.onReplySubmit} />
+                <ReplyForm onSubmit={this.onReplySubmit} user={displayName} />
             </div>
         );
     }

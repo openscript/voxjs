@@ -2,6 +2,7 @@ import { Component, h } from 'preact';
 import { defaultReply, Reply } from '../models/reply';
 
 interface Props {
+    user?: string;
     onSubmit: (reply: Reply) => void;
 }
 
@@ -20,10 +21,12 @@ export class ReplyForm extends Component<Props, State> {
     }
 
     public render() {
+        const submitButtonText = this.props.user ? `Submit as ${this.props.user}` : 'Submit';
+
         return (
             <form onSubmit={this.onSubmit}>
                 <label>Message<textarea onChange={this.onMessageChange} /></label>
-                <input type='submit' value='Submit' />
+                <input type='submit' value={submitButtonText} />
             </form>
         );
     }
