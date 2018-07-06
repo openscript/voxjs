@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import { Component, h } from 'preact';
-import { ReplyForm } from '../components/replyForm';
 import { ReplyList } from '../components/replyList';
+import { ReplyForm } from '../forms/replyForm';
 import { Reply } from '../models/reply';
 
 import 'firebase/auth';
