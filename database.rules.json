@@ -4,7 +4,13 @@
     ".write": "auth !== null",
     "replys" : {
       ".read": "true",
-      ".write": "auth !== null && (!data.exists() || auth.uid === newData.child('uid').val())"
+      ".write": "auth !== null && (!data.exists() || auth.uid === newData.child('uid').val())",
+      "message": {
+        ".validate": true
+      },
+      "$other": {
+        ".validate": false
+      }
     }
   }
 }
