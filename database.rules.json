@@ -1,15 +1,15 @@
 {
   "rules": {
-    ".read": "auth !== null",
-    ".write": "auth !== null",
-    "replys" : {
+    "replies" : {
       ".read": "true",
-      ".write": "auth !== null && (!data.exists() || auth.uid === newData.child('uid').val())",
-      "message": {
-        ".validate": true
-      },
-      "$other": {
-        ".validate": false
+      "$reply_id": {
+        ".write": "auth !== null && !data.exists() && newData.exists()",
+        "message": {
+          ".validate": true
+        },
+        "$other": {
+          ".validate": false
+        }
       }
     }
   }

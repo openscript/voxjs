@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 admin.initializeApp();
 
-export const onReplyCreation = functions.database.ref('/replys/{pushId}').onCreate((snapshot, context) => {
+export const onReplyCreation = functions.database.ref('/replies/{pushId}').onCreate((snapshot, context) => {
     if (context.auth) {
         const setCreatedAt = snapshot.ref.child('created_at').set(admin.database.ServerValue.TIMESTAMP);
         const setUserId = snapshot.ref.child('uid').set(context.auth.uid);

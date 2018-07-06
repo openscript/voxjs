@@ -1,16 +1,17 @@
 import { Component, h } from 'preact';
-import { Reply } from '../models/reply';
+import { StoredReply } from '../models/reply';
+import { ReplyDisplay } from './replyDisplay';
 
 interface Props {
-    replys: Reply[];
+    replies: StoredReply[];
 }
 
 export class ReplyList extends Component<Props> {
     public render() {
-        const replys = this.props.replys.map((reply) => <li key={reply.message}>{reply.message}</li>);
+        const replies = this.props.replies.map((reply) => <ReplyDisplay key={reply.message} reply={reply} />);
         return (
             <ol>
-                {replys}
+                {replies}
             </ol>
         );
     }

@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import { Component, h } from 'preact';
 import { ReplyList } from '../components/replyList';
 import { ReplyForm } from '../forms/replyForm';
-import { Reply } from '../models/reply';
+import { Reply, StoredReply } from '../models/reply';
 
 import 'firebase/auth';
 import 'firebase/database';
@@ -12,23 +12,23 @@ interface Props {
 }
 
 interface State {
-    replys: Reply[];
+    replies: StoredReply[];
 }
 
 export class ReplyContainer extends Component<Props, State> {
     public constructor(props: Props) {
         super(props);
 
-        this.setState({replys: []});
+        this.setState({replies: []});
         this.onReplySubmit = this.onReplySubmit.bind(this);
     }
 
     public componentWillMount() {
-        firebase.database().ref('replys').on('value', (snapshot) => {
+        firebase.database().ref('/replies').on('value', (snapshot) => {
             if (snapshot != null) {
-                const replysSnapshot = (snapshot.val() as {[key: string]: Reply});
-                const replys = Object.keys(replysSnapshot).map((key) => replysSnapshot[key]);
-                this.setState({...this.state, replys});
+                const replysSnapshot = (snapshot.val() as {[key: string]: StoredReply});
+                const replies = Object.keys(replysSnapshot).map((key) => replysSnapshot[key]);
+                this.setState({...this.state, replies});
             }
         });
     }
@@ -40,7 +40,7 @@ export class ReplyContainer extends Component<Props, State> {
         }
         return (
             <div>
-                <ReplyList replys={this.state.replys} />
+                <ReplyList replies={this.state.replies} />
                 <ReplyForm onSubmit={this.onReplySubmit} user={displayName} />
             </div>
         );
@@ -48,12 +48,12 @@ export class ReplyContainer extends Component<Props, State> {
 
     private onReplySubmit(reply: Reply) {
         if (this.props.user) {
-            firebase.database().ref('replys').push().set(reply);
+            firebase.database().ref('/replies').push().set(reply);
         } else {
             const provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithRedirect(provider);
             firebase.auth().getRedirectResult().then((result) => {
-                firebase.database().ref('replys').push().set(reply);
+                firebase.database().ref('/replies').push().set(reply);
             });
         }
     }
