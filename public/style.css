@@ -33,7 +33,7 @@ main {
 }
 
 footer, header {
-    height: 5rem;
+    min-height: 5rem;
     background-color: #eee;
 }
 
