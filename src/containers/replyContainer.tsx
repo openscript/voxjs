@@ -24,7 +24,7 @@ export class ReplyContainer extends Component<Props, State> {
     }
 
     public componentWillMount() {
-        firebase.database().ref('/replies').on('value', (snapshot) => {
+        firebase.database().ref('/replies').child(btoa(window.location.pathname)).on('value', (snapshot) => {
             if (snapshot !== null) {
                 const replysSnapshot = (snapshot.val() as {[key: string]: Exclude<StoredReply, 'key'>});
                 if (replysSnapshot !== null) {
@@ -67,6 +67,6 @@ export class ReplyContainer extends Component<Props, State> {
     }
 
     private pushReply(reply: Reply) {
-        firebase.database().ref('/replies').push().set(reply);
+        firebase.database().ref('/replies').child(btoa(window.location.pathname)).push().set(reply);
     }
 }

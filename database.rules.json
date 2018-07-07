@@ -2,13 +2,15 @@
   "rules": {
     "replies" : {
       ".read": "true",
-      "$reply_id": {
-        ".write": "auth !== null && !data.exists() && newData.exists()",
-        "message": {
-          ".validate": true
-        },
-        "$other": {
-          ".validate": false
+      "$folder_id": {
+        "$reply_id": {
+          ".write": "auth !== null && !data.exists() && newData.exists()",
+          "message": {
+            ".validate": true
+          },
+          "$other": {
+            ".validate": false
+          }
         }
       }
     }
