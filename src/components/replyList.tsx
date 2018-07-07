@@ -8,7 +8,7 @@ interface Props {
 
 export class ReplyList extends Component<Props> {
     public render() {
-        const replies = this.props.replies.map((reply) => <ReplyDisplay key={reply.message} reply={reply} />);
+        const replies = this.props.replies.map((reply) => <ReplyDisplay key={reply.key} reply={reply} />);
         return (
             <ol>
                 {replies}

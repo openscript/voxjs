@@ -7,6 +7,7 @@ export interface Reply {
 }
 
 export interface StoredReply extends Reply {
+    key: string;
     author: string;
     created_at: string;
 }
