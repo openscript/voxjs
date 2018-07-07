@@ -7,3 +7,33 @@
 #voxjs.minimal ol li {
     margin: 1rem 0;
 }
+
+#voxjs img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 4rem;
+}
+
+#voxjs .header {
+    display: flex;
+}
+
+#voxjs .meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+#voxjs .meta span {
+    display: block;
+}
+
+#voxjs .meta .author {
+    font-size: 1.2rem;
+}
+
+#voxjs .message {
+    margin-top: 1rem;
+}
