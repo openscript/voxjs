@@ -25,12 +25,14 @@ export class ReplyContainer extends Component<Props, State> {
 
     public componentWillMount() {
         firebase.database().ref('/replies').on('value', (snapshot) => {
-            if (snapshot != null) {
+            if (snapshot !== null) {
                 const replysSnapshot = (snapshot.val() as {[key: string]: Exclude<StoredReply, 'key'>});
-                const replies = Object.keys(replysSnapshot).map((key) => {
-                    return {...replysSnapshot[key], key};
-                });
-                this.setState({...this.state, replies});
+                if (replysSnapshot !== null) {
+                    const replies = Object.keys(replysSnapshot).map((key) => {
+                        return {...replysSnapshot[key], key};
+                    });
+                    this.setState({...this.state, replies});
+                }
             }
         });
     }
