@@ -12,7 +12,7 @@ export class ReplyDisplay extends Component<Props> {
             <li>
                 <div class='meta' id={this.props.reply.key}>
                     <span class='author'>{this.props.reply.author}</span>
-                    <span class='datetime'>{dayjs(this.props.reply.created_at).toString()}</span>
+                    <span class='datetime'>{dayjs(this.props.reply.createdAt).toString()}</span>
                 </div>
                 {this.props.reply.message}
             </li>
