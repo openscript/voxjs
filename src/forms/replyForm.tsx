@@ -3,7 +3,7 @@ import { defaultReply, Reply } from '../models/reply';
 
 interface Props {
     user?: string;
-    onSubmit: (reply: Reply) => void;
+    onSubmit: (reply: Reply) => Promise<void>;
 }
 
 interface State {
@@ -25,7 +25,7 @@ export class ReplyForm extends Component<Props, State> {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <label>Message<textarea onChange={this.onMessageChange} /></label>
+                <label>Message<textarea onChange={this.onMessageChange} value={this.state.reply.message}/></label>
                 <input type='submit' value={submitButtonText} />
             </form>
         );
@@ -42,6 +42,6 @@ export class ReplyForm extends Component<Props, State> {
 
     private onSubmit(e: Event) {
         e.preventDefault();
-        this.props.onSubmit(this.state.reply);
+        this.props.onSubmit(this.state.reply).then(() => this.setState({reply: defaultReply}));
     }
 }

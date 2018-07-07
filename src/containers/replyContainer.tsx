@@ -49,15 +49,19 @@ export class ReplyContainer extends Component<Props, State> {
     }
 
     private onReplySubmit(reply: Reply) {
-        if (this.props.user) {
-            this.pushReply(reply);
-        } else {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithRedirect(provider);
-            firebase.auth().getRedirectResult().then(() => {
+        return new Promise<void>((resolve, reject) => {
+            if (this.props.user) {
                 this.pushReply(reply);
-            });
-        }
+                resolve();
+            } else {
+                const provider = new firebase.auth.GoogleAuthProvider();
+                firebase.auth().signInWithRedirect(provider);
+                firebase.auth().getRedirectResult().then(() => {
+                    this.pushReply(reply);
+                    resolve();
+                }).catch(() => reject());
+            }
+        });
     }
 
     private pushReply(reply: Reply) {
