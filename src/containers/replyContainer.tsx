@@ -50,13 +50,17 @@ export class ReplyContainer extends Component<Props, State> {
 
     private onReplySubmit(reply: Reply) {
         if (this.props.user) {
-            firebase.database().ref('/replies').push().set(reply);
+            this.pushReply(reply);
         } else {
             const provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithRedirect(provider);
-            firebase.auth().getRedirectResult().then((result) => {
-                firebase.database().ref('/replies').push().set(reply);
+            firebase.auth().getRedirectResult().then(() => {
+                this.pushReply(reply);
             });
         }
+    }
+
+    private pushReply(reply: Reply) {
+        firebase.database().ref('/replies').push().set(reply);
     }
 }
