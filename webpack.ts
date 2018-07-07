@@ -1,4 +1,4 @@
-import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
 import {Configuration, DefinePlugin} from 'webpack';
 

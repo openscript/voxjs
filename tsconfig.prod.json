@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
       "sourceRoot": "src",
       "module": "commonjs",
       "target": "es6",
