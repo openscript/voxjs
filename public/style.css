@@ -37,6 +37,10 @@ footer, header {
     background-color: #eee;
 }
 
+footer {
+    padding-top: 1rem;
+}
+
 input, textarea {
     min-width: 100%;
     box-sizing: border-box;
@@ -48,7 +52,7 @@ textarea {
     max-width: 100%;
 }
 
-#voxjs form, #voxjs form label {
-    display: flex;
-    flex-direction: column;
+a {
+    text-decoration: none;
+    color: #333;
 }

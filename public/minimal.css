@@ -1,3 +1,23 @@
+#voxjs.minimal form {
+    display: flex;
+    flex-direction: column;
+}
+
+#voxjs.minimal form {
+    margin-top: 2rem;
+}
+
+#voxjs textarea, #voxjs .submit {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 2px solid #DDD;
+    background-color: transparent;
+}
+
+#voxjs textarea:focus, #voxjs .submit:focus {
+    border: 2px solid #BBB;
+}
+
 #voxjs.minimal ol {
     list-style: none;
     padding: 0;
@@ -8,36 +28,32 @@
     margin: 1rem 0;
 }
 
-#voxjs img {
+#voxjs.minimal img {
     width: 4rem;
     height: 4rem;
     object-fit: cover;
     border-radius: 4rem;
 }
 
-#voxjs .header {
+#voxjs.minimal .header {
     display: flex;
 }
 
-#voxjs .meta {
+#voxjs.minimal .meta {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 1rem;
 }
 
-#voxjs .meta span {
+#voxjs.minimal .meta span {
     display: block;
 }
 
-#voxjs .meta .author {
+#voxjs.minimal .meta .author {
     font-size: 1.2rem;
 }
 
-#voxjs .message {
+#voxjs.minimal .message, #voxjs.minimal .submit {
     margin-top: 1rem;
-}
-
-#voxjs form {
-    margin-top: 2rem;
 }

@@ -25,8 +25,8 @@ export class ReplyForm extends Component<Props, State> {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <label>Message<textarea onChange={this.onMessageChange} value={this.state.reply.message}/></label>
-                <input type='submit' value={submitButtonText} />
+                <textarea onChange={this.onMessageChange} value={this.state.reply.message} placeholder='Your message' />
+                <input class='submit' type='submit' value={submitButtonText} />
             </form>
         );
     }
