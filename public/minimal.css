@@ -16,6 +16,7 @@
 
 #voxjs textarea:focus, #voxjs .submit:focus {
     border: 2px solid #BBB;
+    outline: none;
 }
 
 #voxjs.minimal ol {
