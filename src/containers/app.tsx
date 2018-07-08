@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 import { Component, h } from 'preact';
 import { ReplyContainer } from './replyContainer';
-import { UserContainer } from './userContainer';
 
 import 'firebase/auth';
 
@@ -22,7 +21,6 @@ export class App extends Component<{}, State> {
         return (
             <div>
                 <ReplyContainer user={this.state.user} />
-                <UserContainer user={this.state.user} />
             </div>
         );
     }
