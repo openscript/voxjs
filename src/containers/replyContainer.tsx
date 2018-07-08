@@ -13,13 +13,14 @@ interface Props {
 
 interface State {
     replies: StoredReply[];
+    loading: boolean;
 }
 
 export class ReplyContainer extends Component<Props, State> {
     public constructor(props: Props) {
         super(props);
 
-        this.setState({replies: []});
+        this.setState({replies: [], loading: true});
         this.onReplySubmit = this.onReplySubmit.bind(this);
     }
 
@@ -34,6 +35,7 @@ export class ReplyContainer extends Component<Props, State> {
                     this.setState({...this.state, replies});
                 }
             }
+            this.setState({...this.state, loading: false});
         });
     }
 
@@ -42,9 +44,10 @@ export class ReplyContainer extends Component<Props, State> {
         if (this.props.user) {
             displayName = this.props.user.displayName ? this.props.user.displayName : undefined;
         }
+        const replylist = this.state.loading ? <span>Loading ...</span> : <ReplyList replies={this.state.replies} />;
         return (
             <div>
-                <ReplyList replies={this.state.replies} />
+                {replylist}
                 <ReplyForm onSubmit={this.onReplySubmit} user={displayName} />
             </div>
         );
