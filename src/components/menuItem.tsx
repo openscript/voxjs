@@ -1,7 +1,11 @@
-import { Component } from 'preact';
+import { Component, h } from 'preact';
 
-export class MenuItem extends Component {
+interface Props {
+    value: string;
+}
+
+export class MenuItem extends Component<Props> {
     public render() {
-        return null;
+        return <li>{this.props.value}</li>;
     }
 }

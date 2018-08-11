@@ -1,4 +1,6 @@
 import { Component, h } from 'preact';
+import { MenuItem } from '../components/menuItem';
+import { SplitButton } from '../components/splitButton';
 import { defaultReply, Reply } from '../models/reply';
 
 interface Props {
@@ -24,10 +26,12 @@ export class ReplyForm extends Component<Props, State> {
         const submitButtonText = this.props.user ? `Submit as ${this.props.user}` : 'Submit';
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <div class='form'>
                 <textarea onChange={this.onMessageChange} value={this.state.reply.message} placeholder='Your message' />
-                <input class='submit' type='submit' value={submitButtonText} />
-            </form>
+                <SplitButton value={submitButtonText} onClick={this.onSubmit}>
+                    <MenuItem value='test' />
+                </SplitButton>
+            </div>
         );
     }
 
@@ -40,8 +44,7 @@ export class ReplyForm extends Component<Props, State> {
         });
     }
 
-    private onSubmit(e: Event) {
-        e.preventDefault();
+    private onSubmit() {
         this.props.onSubmit(this.state.reply).then(() => this.setState({reply: defaultReply}));
     }
 }

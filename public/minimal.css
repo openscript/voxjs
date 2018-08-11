@@ -1,9 +1,9 @@
-#voxjs.minimal form {
+#voxjs.minimal .form {
     display: flex;
     flex-direction: column;
 }
 
-#voxjs.minimal form {
+#voxjs.minimal .form {
     margin-top: 2rem;
 }
 
