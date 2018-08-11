@@ -1,8 +1,8 @@
-import { Component, h } from 'preact';
+import { Component, h, VNode } from 'preact';
 import { MenuItem } from './menuItem';
 
 interface Props {
-    children?: MenuItem[];
+    children?: JSX.Element[];
     expandOnClick?: boolean;
     onClick: () => void;
     value: string;

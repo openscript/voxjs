@@ -30,6 +30,7 @@ export class ReplyForm extends Component<Props, State> {
                 <textarea onChange={this.onMessageChange} value={this.state.reply.message} placeholder='Your message' />
                 <SplitButton value={submitButtonText} onClick={this.onSubmit}>
                     <MenuItem value='test' />
+                    <MenuItem value='test' />
                 </SplitButton>
             </div>
         );
