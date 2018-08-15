@@ -2,7 +2,7 @@ import { Component, h, VNode } from 'preact';
 import { MenuItem } from './menuItem';
 
 interface Props {
-    children?: JSX.Element[];
+    children?: VNode<MenuItem> | Array<VNode<MenuItem>>;
     expandOnClick?: boolean;
     onClick: () => void;
     value: string;
